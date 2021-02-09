@@ -1,0 +1,46 @@
+﻿@using WAConexionBaseDatosCsharp.Models
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<a class="btn btn-primary" href="@Url.Action("Nuevo","Alumno")">NUEVO </a>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+            <th scope="col">Actualizar</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            List<Alumno> lst = (List<Alumno>)ViewBag.lstalumno;
+            foreach (var obj in lst)
+            {
+                <tr>
+                    <td>
+                        @obj.NomAlumno
+                    </td>
+                    <td>
+                        @obj.ApeAlumno
+                    </td>
+                    <td>
+                        @obj.PROCE
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" href="@Url.Action("Nuevo","Alumno",new { idalumno = obj.IdAlumno})">Actualizar </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" href="@Url.Action("Obtener","Alumno",new { idalumno = obj.IdAlumno})">Eliminar </a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>
+

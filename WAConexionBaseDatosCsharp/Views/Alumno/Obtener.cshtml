@@ -1,0 +1,19 @@
+﻿@using WAConexionBaseDatosCsharp.Models;
+@{
+    ViewBag.Title = "Obtener";
+}
+
+<h2>Eliminar Alumno</h2>
+@if (ViewBag.alumno != null)
+{
+    Alumno objalumno = (Alumno)ViewBag.alumno;
+<form method="post" action="@Url.Action("Eliminar","Alumno")">
+    <div class="alert alert-danger" role="alert">
+        Está seguro de eliminar al alumno @Html.Raw(objalumno.NomAlumno + " " + objalumno.ApeAlumno)
+        <input type="hidden" id="idalumno" name="idalumno" value="@objalumno.IdAlumno" />
+
+    </div>
+    <button type="submit" class="btn btn-danger">Confirmar</button>
+    <a href="@Url.Action("Index","Alumno")" class="btn btn-primary">Cancelar</a>
+</form>
+}

@@ -1,0 +1,54 @@
+﻿@using WAConexionBaseDatosCsharp.Models
+@{
+    ViewBag.Title = "Nuevo";
+}
+<h2>Nuevo</h2>
+
+<form method="post" action="@Url.Action("Registrar","Alumno")">
+    @{
+        if (ViewBag.alumno != null)
+        {
+            Alumno objAlumno = (Alumno)ViewBag.alumno;
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nombres</label>
+                <input type="text" class="form-control" value="@objAlumno.NomAlumno" name="txtnombre" id="txtnombre">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" value="@objAlumno.ApeAlumno" name="txtapellido" id="txtapellido">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Especialidad</label>
+                <input type="text" class="form-control" value="@objAlumno.Idesp" name="txtespecialidad" id="txtespecialidad">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Procedencia</label>
+                <input type="text" class="form-control" value="@objAlumno.PROCE" name="txtprocedencia" id="txtprocedencia">
+            </div>
+            <input type="hidden" name="idalumno" id="iddalumno" value="@objAlumno.IdAlumno" />
+        }
+        else
+        {
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nombres</label>
+                <input type="text" class="form-control" id="txtnombre" name="txtnombre">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="txtapellido" name="txtapellido">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Especialidad</label>
+                <input type="text" class="form-control" id="txtespecialidad" name="txtespecialidad">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Procedencia</label>
+                <input type="text" class="form-control" id="txtprocedencia" name="txtprocedencia">
+            </div>
+            <input type="hidden" name="idalumno" id="iddalumno" value="0" />
+        }
+    }
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+
